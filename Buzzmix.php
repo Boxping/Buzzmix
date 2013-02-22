@@ -70,6 +70,8 @@ class Buzzmix extends Smarty {
     
     public $class_dir = null;
     public $class_suffix = ".class.php";
+
+    public $model_dir = null;
     
     public $template_suffix = ".tpl";
     
@@ -96,6 +98,7 @@ class Buzzmix extends Smarty {
             
             $this->page_dir  = $base_dir . '/pages/';
             $this->class_dir = $base_dir . '/classes/';
+            $this->model_dir = $base_dir . '/models/';   
             $this->setCompileDir($base_dir . '/compiled/');
             $this->setTemplateDir($base_dir . '/templates/');
             $this->addPluginsDir($base_dir . '/plugins/');
@@ -120,7 +123,11 @@ class Buzzmix extends Smarty {
         $file = $this->class_dir . $class . $this->class_suffix;
         
         if(!file_exists($file)) {
-            return false;
+            $file = $this->model_dir . $class . $this->class_suffix;
+
+            if (!file_exists($file)) {
+                return false;
+            }
         }
         
         include $file;
