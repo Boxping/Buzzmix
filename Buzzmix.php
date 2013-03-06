@@ -294,6 +294,7 @@ class Buzzmix extends Smarty {
     function outputPage($file, $parts, $uri) {
         
         $smarty = $this;
+        $session = new Session();
         
         $r = include $file;
         
