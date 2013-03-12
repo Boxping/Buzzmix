@@ -1,6 +1,6 @@
 <?php
 
-class Session {
+class Buzzsession {
 	function __get($key) {
 		if (isset($_SESSION[$key])) {
 			$var = $_SESSION[$key];
