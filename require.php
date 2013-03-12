@@ -8,6 +8,7 @@ spl_autoload_register(function ($className) {
         $className == "Buzzstmt" ||
         $className == "Buzzauth" ||
         $className == "Buzzcontroller" ||
+        $className == "Buzzsession" ||
         $className == "Buzzimg"
     ) {
         require (dirname(__FILE__) . '/' . $className . '.php');
